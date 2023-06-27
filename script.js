@@ -15,6 +15,7 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   let availableChars = "";
   let generatedPassword = "";
+  let failMessage = "Something went wrong with password generation. Try again";
   let includeLowerCase;
   let includeUpperCase;
   let includeNumeric;
@@ -25,10 +26,10 @@ function generatePassword() {
 
   if (length < 8 || length > 128) {
     alert("Password should be between 8 and 128 characters.");
-    return;
+    return failMessage;
   } else if (isNaN(length)) {
     alert("Plese enter a number");
-    return;
+    return failMessage;
   } else {
     // check for lowercase
     includeLowerCase = prompt(
@@ -38,7 +39,7 @@ function generatePassword() {
       availableChars = "abcdefghijklmnopqrstuvwxyz";
     } else if (includeLowerCase != "Y" && includeLowerCase != "N") {
       alert("Invalid selection, please only enter Y or N.");
-      return;
+      return failMessage;
     }
 
     // check for upper case
@@ -49,7 +50,7 @@ function generatePassword() {
       availableChars = availableChars + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     } else if (includeUpperCase != "Y" && includeUpperCase != "N") {
       alert("Invalid selection, please only enter Y or N.");
-      return;
+      return failMessage;
     }
 
     // check for numeric
@@ -58,7 +59,7 @@ function generatePassword() {
       availableChars = availableChars + "0123456789";
     } else if (includeNumeric != "Y" && includeNumeric != "N") {
       alert("Invalid selection, please only enter Y or N.");
-      return;
+      return failMessage;
     }
 
     // check for special characters
@@ -67,7 +68,7 @@ function generatePassword() {
       availableChars = availableChars + "!@#$%^&*()-_=+`~;:<>,./?";
     } else if (includeSpecial != "Y" && includeSpecial != "N") {
       alert("Invalid selection, please only enter Y or N.");
-      return;
+      return failMessage;
     }
 
     if (
@@ -77,7 +78,7 @@ function generatePassword() {
       includeSpecial == "N"
     ) {
       alert("At least one character type must be selected");
-      return;
+      return failMessage;
     } else {
       for (let i = 0, n = availableChars.length; i < length; i++) {
         generatedPassword += availableChars.charAt(

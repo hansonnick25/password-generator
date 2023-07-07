@@ -13,3 +13,5 @@ This is my personal project, I've worked on it alone
 ## Screenshot
 
 ![website screenshot](assets/images/websiteScreenshot.png)
+
+[Link to Deployed Website](https://hansonnick25.github.io/passwordGenerator/)
